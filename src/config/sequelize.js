@@ -10,24 +10,24 @@ const config = {
   database: process.env.DATABASE_NAME || '',
   host: process.env.DATABASE_HOST || '',
   port: process.env.DATABASE_PORT || '',
-  dialect: 'postgres'
+  dialect: 'postgres',
 }
 
-const DATABASE_LOG = !process.env.DATABASE_LOG ? false : (process.env.DATABASE_LOG === 'true')
+const DATABASE_LOG = !process.env.DATABASE_LOG ? false : process.env.DATABASE_LOG === 'true'
 
-Sequelize.DATE.prototype._stringify = function _stringify (date, options) {
+Sequelize.DATE.prototype._stringify = function _stringify(date, options) {
   return this._applyTimezone(date, options).format('YYYY-MM-DD HH:mm:ss.SSS')
 }
 
 const commonOptions = {
   ...config,
-  logging: DATABASE_LOG ? msg => console.log(msg) : true,
+  logging: DATABASE_LOG ? (msg) => console.log(msg) : true,
   define: {
     underscored: true,
-    freezeTableName: true
+    freezeTableName: true,
   },
   timezone: '+00:00',
-  dialectModule: pg
+  dialectModule: pg,
 }
 
 export const loadORM = async () => {

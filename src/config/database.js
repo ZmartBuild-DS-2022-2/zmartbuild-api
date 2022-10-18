@@ -8,7 +8,7 @@ const config = {
     host: process.env.DATABASE_HOST || '',
     port: process.env.DATABASE_PORT || '',
     dialect: 'postgres',
-    seederStorage: 'sequelize'
+    seederStorage: 'sequelize',
   },
   test: {
     username: process.env.DATABASE_USERNAME || '',
@@ -17,7 +17,7 @@ const config = {
     host: process.env.DATABASE_HOST || '',
     port: process.env.DATABASE_PORT || '',
     dialect: 'postgres',
-    seederStorage: 'sequelize'
+    seederStorage: 'sequelize',
   },
   production: {
     username: 'root',
@@ -25,8 +25,8 @@ const config = {
     database: 'database_production',
     host: '127.0.0.1',
     dialect: 'postgres',
-    seederStorage: 'sequelize'
-  }
+    seederStorage: 'sequelize',
+  },
 }
 
 module.exports = config[process.env.NODE_ENV]

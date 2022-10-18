@@ -3,15 +3,13 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
-    'jest/globals': true
+    'jest/globals': true,
   },
-  extends: [
-    'prettier'
-  ],
+  extends: ['prettier'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   rules: {
     'jest/no-disabled-tests': 'error',
@@ -23,7 +21,7 @@ module.exports = {
     camelcase: 'error',
     eqeqeq: 'error',
     'func-names': 'error',
-    'complexity': ['warn', 5],
+    complexity: ['warn', 5],
     'max-params': ['warn', 5],
     'no-console': 'warn',
     'no-alert': 'error',
@@ -45,20 +43,18 @@ module.exports = {
         code: 100,
         ignoreUrls: true,
         ignoreStrings: true,
-        ignoreComments: true
-      }
-    ]
+        ignoreComments: true,
+      },
+    ],
   },
   overrides: [
     {
-      files: [
-        'src/tests/*/*.js'
-      ],
+      files: ['src/tests/*/*.js'],
       rules: {
         'max-statements': 'off',
-        'max-lines-per-function': 'off'
-      }
-    }
+        'max-lines-per-function': 'off',
+      },
+    },
   ],
-  plugins: ['jest']
+  plugins: ['jest'],
 }

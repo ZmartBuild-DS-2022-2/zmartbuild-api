@@ -6,6 +6,8 @@
   "scripts": {
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
+    "format": "prettier --check src",
+    "format-write": "prettier --write src",
     "start": "npm run lint && nodemon --exec sls offline start --httpPort 3001",
     "test": "jest src/tests/ --detectOpenHandles --runInBand",
     "test-cov": "jest src/tests/ --detectOpenHandles --runInBand --coverage",
@@ -13,7 +15,8 @@
     "db-migrate": "sequelize db:migrate",
     "db-migrate-undo": "sequelize db:migrate:undo",
     "db-seed": "sequelize db:seed:all",
-    "db-seed-undo": "sequelize db:seed:undo"
+    "db-seed-undo": "sequelize db:seed:undo",
+    "prepare": "husky install"
   },
   "author": "ZmartBuild",
   "devDependencies": {
@@ -21,22 +24,22 @@
     "@babel/eslint-parser": "^7.19.1",
     "@faker-js/faker": "^7.5.0",
     "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.0.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.1",
+    "husky": "^8.0.1",
     "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
     "sequelize-cli": "^6.5.1",
     "serverless-bundle": "^5.5.0",
     "serverless-dotenv": "^1.0.0-beta.2",
     "serverless-dotenv-plugin": "^4.0.2",
     "serverless-offline": "^10.2.1",
     "serverless-prune-plugin": "^2.0.1",
-    "serverless-step-functions": "^3.10.0",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1"
+    "serverless-step-functions": "^3.10.0"
   },
   "dependencies": {
     "aws-sdk": "^2.1223.0",

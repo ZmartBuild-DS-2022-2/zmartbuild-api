@@ -2,13 +2,12 @@ import { succesfullResponse, errorResponse } from '../../utils/response_util'
 import { loadORM } from '../../config/sequelize'
 
 const sanitizeBody = (body) => {
-    return {
-      email: body.email,
-    }
+  return {
+    email: body.email,
   }
+}
 
 export const createUser = async (event) => {
-
   const body = sanitizeBody(JSON.parse(event.body))
   const orm = await loadORM()
 
@@ -20,4 +19,3 @@ export const createUser = async (event) => {
     return errorResponse(error, 400)
   }
 }
-
