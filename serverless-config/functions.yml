@@ -12,8 +12,17 @@ CreateUser:
   handler: src/functions/users/createUser.createUser
   events:
     - http:
-        path: /user/register
+        path: /user
         method: POST
+        cors: true
+
+GetUser:
+  description: Get a user by is id
+  handler: src/functions/users/getUser.getUser
+  events:
+    - http:
+        path: /user/{id}
+        method: GET
         cors: true
 
 GetUsers:
