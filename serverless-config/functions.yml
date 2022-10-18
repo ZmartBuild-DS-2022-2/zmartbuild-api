@@ -1,0 +1,8 @@
+HelloWorld:
+  description: Hello world
+  handler: src/functions/hello_world/index.handler
+  events: 
+    - http:
+        path: /hello-world
+        method: GET
+        cors: true
