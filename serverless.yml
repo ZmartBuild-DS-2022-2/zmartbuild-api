@@ -1,4 +1,3 @@
-org: zmartbuild
 app: zmartbuild-api
 service: zmartbuild-api
 frameworkVersion: '3'
