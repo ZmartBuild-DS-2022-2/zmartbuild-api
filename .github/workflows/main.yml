@@ -20,14 +20,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Create .env file
-      uses: SpicyPizza/create-envfile@v1.3.0
+      uses: SpicyPizza/create-envfile@v1.3
       with:
-        NODE_ENV: development
-        DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-        DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
-        DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
-        DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+        envkey_NODE_ENV: development
+        envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+        envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+        envkey_DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+        envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
 
     - run: npm ci
     - name: serverless deploy
