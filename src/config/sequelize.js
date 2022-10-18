@@ -2,8 +2,7 @@
 
 import pg from 'pg'
 import { Sequelize } from 'sequelize'
-import { loadTicket } from '../models/ticket'
-import { loadComment } from '../models/comment'
+import { loadUser } from '../models/user'
 
 const config = {
   username: process.env.DATABASE_USERNAME || '',
@@ -22,7 +21,7 @@ Sequelize.DATE.prototype._stringify = function _stringify (date, options) {
 
 const commonOptions = {
   ...config,
-  logging: DATABASE_LOG ? msg => console.log(msg) : false,
+  logging: DATABASE_LOG ? msg => console.log(msg) : true,
   define: {
     underscored: true,
     freezeTableName: true
@@ -36,10 +35,7 @@ export const loadORM = async () => {
     const instanceSequelize = new Sequelize(commonOptions)
     await instanceSequelize.authenticate()
     const orm = {}
-    orm.Ticket = loadTicket(instanceSequelize, Sequelize.DataTypes)
-    orm.Comment = loadComment(instanceSequelize, Sequelize.DataTypes)
-    orm.Ticket.associate(orm)
-    orm.Comment.associate(orm)
+    orm.User = loadUser(instanceSequelize, Sequelize.DataTypes)
 
     console.log('Database Connected OK')
     return orm

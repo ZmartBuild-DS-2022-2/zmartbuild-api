@@ -6,3 +6,21 @@ HelloWorld:
         path: /hello-world
         method: GET
         cors: true
+
+CreateUser:
+  description: Creates a user
+  handler: src/functions/users/createUser.createUser
+  events:
+    - http:
+        path: /user/register
+        method: POST
+        cors: true
+
+GetUsers:
+  description: Finds all users
+  handler: src/functions/users/getUsers.getUsers
+  events:
+    - http:
+        path: /users
+        method: GET
+        cors: true
