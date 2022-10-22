@@ -5,7 +5,7 @@ export const getUser = async (event, context, callback) => {
   try {
     const orm = await loadORM()
     const user = await orm.User.findByPk(event.pathParameters.id)
-    return succesfullResponse(user)
+    return succesfullResponse(user, event)
   } catch (error) {
     return errorResponse(error, 400)
   }

@@ -33,3 +33,30 @@ GetUsers:
         path: /users
         method: GET
         cors: true
+
+Login:
+  description: Logins user, returns jwt and cookie
+  handler: src/functions/auth/login.login
+  events:
+    - http:
+        path: /users/login
+        method: POST
+        cors: 
+          origin: http://localhost:3000 # <-- Specify allowed origin
+          headers: # <-- Specify allowed headers
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+          allowCredentials: true
+
+Logout:
+  description: Logout user, deletes cookie
+  handler: src/functions/auth/logout.logout
+  events:
+    - http:
+        path: /users/logout
+        method: DELETE
+        cors: true

@@ -4,6 +4,7 @@ import { loadORM } from '../../config/sequelize'
 const sanitizeBody = (body) => {
   return {
     email: body.email,
+    password: body.password,
   }
 }
 
@@ -14,7 +15,7 @@ export const createUser = async (event) => {
   try {
     const user = orm.User.build({ ...body })
     await user.save()
-    return succesfullResponse(user, 201)
+    return succesfullResponse(user, event, 201)
   } catch (error) {
     return errorResponse(error, 400)
   }

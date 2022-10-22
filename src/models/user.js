@@ -3,6 +3,7 @@ export const loadUser = (sequelize, DataTypes) => {
     'User',
     {
       email: DataTypes.STRING,
+      password: DataTypes.STRING,
     },
     { tableName: 'users' }
   )

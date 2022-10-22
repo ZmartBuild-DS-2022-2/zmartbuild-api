@@ -21,7 +21,7 @@ Sequelize.DATE.prototype._stringify = function _stringify(date, options) {
 
 const commonOptions = {
   ...config,
-  logging: DATABASE_LOG ? (msg) => console.log(msg) : true,
+  logging: DATABASE_LOG ? (msg) => console.log(msg) : false,
   define: {
     underscored: true,
     freezeTableName: true,
